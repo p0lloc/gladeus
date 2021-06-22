@@ -5,6 +5,7 @@ import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -79,6 +80,18 @@ class DefaultStackBuilder implements StackBuilder {
     @Override
     public StackBuilder unbreakable(boolean unbreakable) {
         meta.setUnbreakable(unbreakable);
+        return this;
+    }
+
+    @Override
+    public StackBuilder enchant(Enchantment enchantment, int level) {
+        stack.addEnchantment(enchantment, level);
+        return this;
+    }
+
+    @Override
+    public StackBuilder enchantUnsafe(Enchantment enchantment, int level) {
+        stack.addUnsafeEnchantment(enchantment, level);
         return this;
     }
 

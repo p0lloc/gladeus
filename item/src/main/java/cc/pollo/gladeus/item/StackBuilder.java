@@ -4,6 +4,7 @@ import cc.pollo.texty.Texty;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -75,6 +76,10 @@ public interface StackBuilder {
     StackBuilder lore(Supplier<List<Component>> dynamicLore);
 
     StackBuilder unbreakable(boolean unbreakable);
+
+    StackBuilder enchant(Enchantment enchantment, int level);
+
+    StackBuilder enchantUnsafe(Enchantment enchantment, int level);
 
     @Deprecated
     StackBuilder skullOwner(String skullOwner);
